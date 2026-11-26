@@ -9,6 +9,9 @@ import os
 # One line, 100 characters. The gate (RULES.txt) allows 1-120.
 LINE = "You hit all twelve buttons, then sigh when I stop at every floor. Buddy, I am not the slow one here."
 
+# Enforce the gate locally: a line outside 1-120 characters is refused.
+assert 1 <= len(LINE) <= 120, "entry must be 1-120 characters"
+
 def main():
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
